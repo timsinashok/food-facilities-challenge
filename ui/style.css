@@ -1,0 +1,193 @@
+/* General Body and Container Styles */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto; /* Added margin-top/bottom */
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #0056b3;
+    text-align: center;
+    margin-bottom: 15px; /* Added margin */
+}
+
+.search-section, .results-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select { /* Added select to styling */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1;
+    min-width: 150px;
+    box-sizing: border-box;
+    font-size: 1rem; /* Ensure font size is consistent */
+}
+
+form button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* --- Results List and Item Styling --- */
+.results-list {
+    list-style: none; /* Remove default list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.result-item {
+    border: 1px solid #ddd; /* Add border around each item */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden; /* Hide overflowing content when collapsed */
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.result-summary {
+    padding: 15px;
+    background-color: #e9e9e9;
+    cursor: pointer; /* Indicate clickable */
+    transition: background-color 0.2s ease;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out items */
+    align-items: center;
+    /* Prevent text selection on click */
+    user-select: none;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ */
+}
+
+.result-summary:hover {
+    background-color: #dcdcdc;
+}
+
+.result-summary strong {
+    color: #0056b3;
+}
+
+/* Status Badge Styling */
+.result-summary .status {
+    font-size: 0.9em;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: white;
+    /* Basic status colors - customize as needed */
+    background-color: gray; /* Default */
+    flex-shrink: 0; /* Prevent status badge from shrinking */
+    margin-left: 10px; /* Space between title and status */
+}
+
+/* Specific status colors */
+.result-summary .status.APPROVED { background-color: #28a745; } /* Green */
+.result-summary .status.REQUESTED { background-color: #ffc107; } /* Yellow */
+.result-summary .status.EXPIRED { background-color: #dc3545; } /* Red */
+.result-summary .status.SUSPENDED { background-color: #6c757d; } /* Gray */
+
+
+/* --- Detail Section Styling (Initially Hidden) --- */
+.result-details {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    /* This is the key style to hide the details section by default */
+    display: none;
+    background-color: #fff;
+}
+
+.result-details p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.result-details strong {
+     margin-right: 5px;
+     color: #555;
+}
+
+/* Optional: Add an indicator for expandable items (+/-) */
+.result-summary::after {
+    content: '+'; /* Plus sign indicator when collapsed */
+    font-weight: bold;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+/* Change indicator to minus sign when the parent item has the 'expanded' class */
+.result-item.expanded .result-summary::after {
+    content: '-'; /* Minus sign when expanded */
+}
+
+/* Ensure details are displayed when the parent item has the 'expanded' class */
+/* Although JS directly sets display, this CSS rule could also control it */
+.result-item.expanded .result-details {
+    display: block;
+}
+
+
+.results-section pre {
+    background-color: #eee;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    form input[type="text"],
+    form input[type="number"],
+    form select, /* Added select */
+    form button {
+        width: 100%;
+        min-width: 0;
+    }
+}

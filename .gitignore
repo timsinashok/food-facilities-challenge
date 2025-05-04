@@ -1,0 +1,15 @@
+.DS_Store
+
+# virtual environment
+.venv
+
+# Pycache
+__pycache__/
+*.py[cod]
+
+# Pytest cache
+*.pytest_cache/
+
+# database
+*.sqlite3
+*.db

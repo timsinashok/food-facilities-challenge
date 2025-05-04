@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF Food Facilities</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>San Francisco Mobile Food Facilities</h1>
+
+        <div class="search-section">
+            <h2>Search by Applicant Name</h2>
+            <form id="searchNameForm">
+                <input type="text" id="applicantName" placeholder="Enter Applicant Name (partial or full)" required>
+                <select id="statusFilter">
+                    <option value="">-- Select Status (Optional) --</option>
+                    <option value="APPROVED">APPROVED</option>
+                    <option value="REQUESTED">REQUESTED</option>
+                    <option value="EXPIRED">EXPIRED</option>
+                    <option value="SUSPENDED">SUSPENDED</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="search-section">
+            <h2>Search by Street Name</h2>
+            <form id="searchStreetForm">
+                <input type="text" id="streetName" placeholder="Enter Street Name (partial or full)" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="search-section">
+            <h2>Find Nearest Food Trucks</h2>
+            <form id="findNearestForm">
+                <input type="number" id="latitude" placeholder="Your Latitude" step="0.000001" required>
+                <input type="number" id="longitude" placeholder="Your Longitude" step="0.000001" required>
+                 <select id="nearestStatusFilter">
+                    <option value="APPROVED">APPROVED (Default)</option>
+                    <option value="">-- All Statuses --</option> <option value="REQUESTED">REQUESTED</option>
+                    <option value="EXPIRED">EXPIRED</option>
+                    <option value="SUSPENDED">SUSPENDED</option>
+                </select>
+                <input type="number" id="limit" placeholder="Optional Limit (default: 5)" value="5" min="1">
+                <button type="submit">Find Nearest</button>
+            </form>
+             <p class="note">Default status for Nearest search is 'APPROVED'. Select '-- All Statuses --' to search all statuses.</p>
+        </div>
+
+        <div class="results-section">
+            <h2>Results</h2>
+            <div id="results">
+                <p>Search results will appear here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
