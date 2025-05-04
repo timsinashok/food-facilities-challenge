@@ -1,14 +1,24 @@
 .DS_Store
 
-# virtual environment
-.venv
-
-# Pycache
-__pycache__/
-*.py[cod]
+# Virtual environment
+.env
+.venv/
 
 # Pytest cache
 *.pytest_cache/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+
+# Test and coverage outputs
+htmlcov/
+.coverage
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
 
 # database
 *.sqlite3
