@@ -214,11 +214,6 @@ docker run -p 8000:8000 food-facilities-app
 
 Then open [http://localhost:8000](http://localhost:8000) in your browser.
 
-# LLM USAGE
-
-Absolutely! Here's a more polished and professional version that still reflects your personal experience:
-
----
 
 ## 🤖 LLM Usage
 
