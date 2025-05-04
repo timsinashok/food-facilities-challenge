@@ -7,11 +7,12 @@ WORKDIR /app
 # Install uv - this requires pip initially
 RUN pip install uv
 
-# Copy the requirements file into the container
-COPY requirements.txt .
+# Copy pyproject.toml into the container
+COPY pyproject.toml .
 
 # Install the Python dependencies using uv into the system environment(not venv) inside the container
-RUN uv pip install --system -r requirements.txt
+RUN uv pip install "." --system
+
 
 # Copy the rest of the application code 
 COPY . .
